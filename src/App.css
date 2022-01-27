@@ -1,6 +1,10 @@
 .App {
+  width: "100vh";
+  height: "100%";
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  margin-top: "auto";
 }
 
 .App-link {

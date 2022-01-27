@@ -1,7 +1,7 @@
 import React from "react";
 import { CONSTANTS } from "../constants";
 
-const stravaAuthLink = `${CONSTANTS.STRAVA_BASE_URL}?client_id=${CONSTANTS.STRAVA_CLIENT_ID}&response_type=code&redirect_uri=http://localhost/exchange_token&approval_prompt=auto&scope=activity:read_all,activity:write,profile:read_all`;
+const stravaAuthLink = `${CONSTANTS.STRAVA_BASE_URL}?client_id=${CONSTANTS.STRAVA_CLIENT_ID}&response_type=code&redirect_uri=http://localhost:3000/settings&approval_prompt=auto&scope=activity:read_all,activity:write,profile:read_all`;
 
 const Login = () => {
   return (

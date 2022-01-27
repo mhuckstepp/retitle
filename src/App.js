@@ -6,10 +6,10 @@ import Settings from "./components/Settings.component";
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/" element={<Settings />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/settings" element={<Settings />} />
       </Routes>
     </div>
   );
