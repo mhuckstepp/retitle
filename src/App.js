@@ -1,9 +1,16 @@
+import { useState, useEffect, Fragment } from "react";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
+import Login from "./components/Login.component";
+import Settings from "./components/Settings.component";
 
 function App() {
   return (
-    <div className="App">
-      <p>Auth with Strava to get new title for your activities!</p>
+    <div>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Settings />} />
+      </Routes>
     </div>
   );
 }
