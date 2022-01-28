@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { axiosCodeClient, axiosDisableClient } from "../axios";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
+import { CenteredDiv } from "./styleComponents";
 
 const Settings = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -34,39 +37,42 @@ const Settings = () => {
 
   if (error) {
     return (
-      <div>
+      <CenteredDiv>
         <h2>
           We had an issue syncing with your strava, please try again and make
           sure to check all the boxes on the Strava page{" "}
         </h2>
-      </div>
+      </CenteredDiv>
     );
   }
 
   if (isLoading || !user) {
     return (
-      <div>
+      <CenteredDiv>
         <h2>
           {" "}
-          Give us a second, we are registering with Strava and loading you
+          Give us a second, we are registering with Strava and loading your
           information{" "}
         </h2>
-      </div>
+        <Box sx={{ display: "flex" }}>
+          <CircularProgress />
+        </Box>
+      </CenteredDiv>
     );
   }
 
   return (
-    <div>
+    <CenteredDiv>
       <p>
-        Welcome {user?.firstName}, you are now set up to get fun new titles to
-        replace any generic titles
+        Welcome {user?.firstName || "friend"}, you are now set up to get fun new
+        titles to replace any generic titles
       </p>
       <p>
         If you want to stop your fun titles, go into your strava settings and
         turn off the integration.
       </p>
       {/* <button onClick={disableAccount}>Disable my Re-Title account</button> */}
-    </div>
+    </CenteredDiv>
   );
 };
 
