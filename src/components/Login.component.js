@@ -6,10 +6,8 @@ import { CenteredDiv } from "./styleComponents";
 const Login = () => {
   return (
     <CenteredDiv>
-      <p>
-        Tired of boring generic activity titles on Strava? use ReTitle to get a
-        new fun new title for your activities!
-      </p>
+      <h2>Tired of boring/generic activity titles on Strava?</h2>
+      <h2>Use ReTitle to get a new fun new title for your activities!</h2>
       <Button
         variant="contained"
         href={CONSTANTS.STRAVA_AUTH_LINK}
