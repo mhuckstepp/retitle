@@ -1,14 +1,14 @@
 import React from "react";
 import Button from "@mui/material/Button";
-import { CONSTANTS } from "../constants";
-import { CenteredDiv } from "./styleComponents";
+import { CONSTANTS } from "bootstrap/constants";
+import { CenteredDiv } from "components/styleComponents";
 
 const Login = () => {
   return (
     <CenteredDiv>
       <h2>Tired of boring/generic activity titles on Strava?</h2>
       <h2>
-        Use ReTitle to get a fun new title for your activities automatically!
+        Use ReTitle to get a fun new title for your activity automatically!
       </h2>
       <Button
         variant="contained"

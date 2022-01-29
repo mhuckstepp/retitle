@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { axiosCodeClient, axiosDisableClient } from "../axios";
-import CircularProgress from "@mui/material/CircularProgress";
-import Box from "@mui/material/Box";
-import { CenteredDiv } from "./styleComponents";
+import { axiosCodeClient } from "bootstrap/axios";
+import { Button } from "@mui/material";
+import { CenteredDiv, ButtonContainer } from "components/styleComponents";
+import Loader from "components/Loader.component";
+import Error from "./Error.component";
 
 const Settings = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -10,7 +11,7 @@ const Settings = () => {
   const [user, setUser] = useState({});
 
   const disableAccount = () => {
-    axiosDisableClient({
+    axiosCodeClient("/disable", {
       params: {
         id: user.id,
       },
@@ -36,42 +37,28 @@ const Settings = () => {
   }, []);
 
   if (error) {
-    return (
-      <CenteredDiv>
-        <h2>
-          We had an issue syncing with your strava, please try again and make
-          sure to check all the boxes on the Strava page{" "}
-        </h2>
-      </CenteredDiv>
-    );
+    return <Error />;
   }
 
-  if (isLoading || !user) {
-    return (
-      <CenteredDiv>
-        <h2>
-          {" "}
-          Give us a second, we are registering with Strava and loading your
-          information{" "}
-        </h2>
-        <Box sx={{ display: "flex" }}>
-          <CircularProgress />
-        </Box>
-      </CenteredDiv>
-    );
+  if (!isLoading || user.firstName) {
+    return <Loader />;
   }
 
   return (
     <CenteredDiv>
-      <p>
+      <h3>
         Welcome {user?.firstName || "friend"}, you are now set up to get fun new
         titles to replace any generic titles
-      </p>
+      </h3>
       <p>
         If you want to stop your fun titles, go into your strava settings and
         turn off the integration.
       </p>
-      {/* <button onClick={disableAccount}>Disable my Re-Title account</button> */}
+      <ButtonContainer>
+        <Button variant="contained" onClick={disableAccount}>
+          Disable my Re-Title account
+        </Button>
+      </ButtonContainer>
     </CenteredDiv>
   );
 };

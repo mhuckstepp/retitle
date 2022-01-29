@@ -7,9 +7,3 @@ export const axiosCodeClient = axios.create({
   method: "post",
   timeout: 3000,
 });
-
-export const axiosDisableClient = axios.create({
-  baseURL: BASE_URL,
-  method: "post",
-  timeout: 3000,
-});
