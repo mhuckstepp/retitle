@@ -40,7 +40,7 @@ const Settings = () => {
     return <Error />;
   }
 
-  if (!isLoading || user.firstName) {
+  if (isLoading || !user.firstName) {
     return <Loader />;
   }
 
