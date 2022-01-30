@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { axiosCodeClient } from "bootstrap/axios";
-import { Button } from "@mui/material";
-import { CenteredDiv, ButtonContainer } from "components/styleComponents";
-import Loader from "components/Loader.component";
-import Error from "./Error.component";
+import React, { useEffect, useState } from 'react';
+import { axiosCodeClient } from 'bootstrap/axios';
+import { Button } from '@mui/material';
+import { CenteredDiv, ButtonContainer } from 'components/styleComponents';
+import Loader from 'components/Loader.component';
+import Error from './Error.component';
 
 const Settings = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -11,7 +11,7 @@ const Settings = () => {
   const [user, setUser] = useState({});
 
   const disableAccount = () => {
-    axiosCodeClient("/disable", {
+    axiosCodeClient('/disable', {
       params: {
         id: user.id,
       },
@@ -19,9 +19,7 @@ const Settings = () => {
   };
 
   const fetchStravaUser = async (stravaCode) => {
-    const response = await axiosCodeClient({
-      params: { stravaCode },
-    });
+    const response = await axiosCodeClient('/', { data: { stravaCode } });
     setIsLoading(false);
     if (response.user) setUser(user);
   };
@@ -47,7 +45,7 @@ const Settings = () => {
   return (
     <CenteredDiv>
       <h3>
-        Welcome {user?.firstName || "friend"}, you are now set up to get fun new
+        Welcome {user?.firstName || 'friend'}, you are now set up to get fun new
         titles to replace any generic titles
       </h3>
       <p>
