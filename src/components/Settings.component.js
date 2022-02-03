@@ -19,9 +19,13 @@ const Settings = () => {
   };
 
   const fetchStravaUser = async (stravaCode) => {
+    try{
     const response = await axiosCodeClient('/', { data: { stravaCode } });
     setIsLoading(false);
     if (response.user) setUser(user);
+    } catch (error) {
+      setError(JSON.stringify(error))
+    }
   };
 
   useEffect(() => {
@@ -35,7 +39,7 @@ const Settings = () => {
   }, []);
 
   if (error) {
-    return <Error />;
+    return <Error error={error} />;
   }
 
   if (isLoading || !user.firstName) {
