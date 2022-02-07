@@ -20,9 +20,9 @@ const Settings = () => {
 
   const fetchStravaUser = async (stravaCode) => {
     try{
-    const response = await axiosCodeClient('/', { data: { stravaCode } });
+    const { data } = await axiosCodeClient('/', { data: { stravaCode } });
+    if (data.firstName) setUser(data);
     setIsLoading(false);
-    if (response.user) setUser(user);
     } catch (error) {
       setError(JSON.stringify(error))
     }
