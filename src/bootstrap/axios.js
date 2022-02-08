@@ -1,10 +1,6 @@
 import axios from 'axios';
 
 export const axiosCodeClient = axios.create({
-  baseURL: process.env.REACT_APP_API_UR,
+  baseURL: process.env.REACT_APP_API_URL,
   method: 'post',
-  headers: {
-    'Access-Control-Allow-Origin': '*',
-    'Content-Type': 'application/json',
-  }
 });
