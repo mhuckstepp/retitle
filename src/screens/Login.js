@@ -1,9 +1,9 @@
-import React from "react";
-import Button from "@mui/material/Button";
-import { CONSTANTS } from "bootstrap/constants";
-import { CenteredDiv } from "components/styleComponents";
+import React from 'react';
+import Button from '@mui/material/Button';
+import { CONSTANTS } from 'bootstrap/constants';
+import { CenteredDiv } from 'components/styleComponents';
 
-const Login = () => {
+export default function Login() {
   return (
     <CenteredDiv>
       <h2>Tired of boring/generic activity titles on Strava?</h2>
@@ -13,12 +13,9 @@ const Login = () => {
       <Button
         variant="contained"
         href={CONSTANTS.STRAVA_AUTH_LINK}
-        color="warning"
-      >
+        color="warning">
         Auth with Strava
       </Button>
     </CenteredDiv>
   );
-};
-
-export default Login;
+}

@@ -1,17 +1,22 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import Login from "components/Login.component";
-import Settings from "components/Settings.component";
-import { MainAppStyle } from "components/styleComponents";
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { UserProvider } from './hooks/user';
+import Login from 'screens/Login';
+import Auth from 'screens/Auth';
+import Dashboard from 'screens/Dashboard';
+import { MainAppStyle } from 'components/styleComponents';
 
 function App() {
   return (
-    <MainAppStyle>
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/settings" element={<Settings />} />
-      </Routes>
-    </MainAppStyle>
+    <UserProvider>
+      <MainAppStyle>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Routes>
+      </MainAppStyle>
+    </UserProvider>
   );
 }
 
