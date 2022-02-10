@@ -10,21 +10,16 @@ const Settings = () => {
   const [error, setError] = useState(false);
   const [user, setUser] = useState({});
 
-  const disableAccount = () => {
-    axiosCodeClient('/disable', {
-      params: {
-        id: user.id,
-      },
-    });
-  };
+  const disableAccount = () =>
+    axiosCodeClient(`/${user.stravaUserId}`, { method: 'DELETE' });
 
   const fetchStravaUser = async (stravaCode) => {
-    try{
-    const { data } = await axiosCodeClient('/', { data: { stravaCode } });
-    if (data.firstName) setUser(data);
-    setIsLoading(false);
+    try {
+      const { data } = await axiosCodeClient('/', { data: { stravaCode } });
+      if (data.firstName) setUser(data);
+      setIsLoading(false);
     } catch (error) {
-      setError(JSON.stringify(error))
+      setError(JSON.stringify(error));
     }
   };
 
