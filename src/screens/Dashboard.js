@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { axiosCodeClient } from 'bootstrap/axios';
 import { Button } from '@mui/material';
 import { CenteredDiv, ButtonContainer } from 'components/styleComponents';
@@ -10,11 +10,28 @@ export default function Dashboard() {
   const disableAccount = () =>
     axiosCodeClient(`/${user.stravaUserId}`, { method: 'DELETE' });
 
+  const name = useMemo(
+    (user) => {
+      const defaultName = 'friend';
+
+      if (!user?.firstName) return defaultName;
+      // The default name for new users is 'Strava Athlete'.
+      if (
+        user.firstName?.toLowerCase() === 'strava' &&
+        user?.lastName?.toLowerCase() === 'athlete'
+      )
+        return defaultName;
+
+      return user.firstName;
+    },
+    [user],
+  );
+
   return (
     <CenteredDiv>
       <h3>
-        Welcome {user?.firstName || 'friend'}, you are now set up to get fun new
-        titles to replace any generic titles
+        Welcome {name}, you are now set up to get fun new titles to replace any
+        generic titles
       </h3>
       <p>
         If you want to stop your fun titles, click below to turn off the
