@@ -19,7 +19,7 @@ export default function Dashboard() {
   };
 
   const name = useMemo(
-    (user) => {
+    () => {
       const defaultName = 'friend';
 
       if (!user?.firstName) return defaultName;
@@ -37,7 +37,7 @@ export default function Dashboard() {
 
   return (
     <CenteredDiv>
-      <Logo />
+      <Logo success/>
       <h3>
         Welcome {name}, you are now set up to get fun new titles to replace any
         generic titles

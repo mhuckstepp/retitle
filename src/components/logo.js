@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const LogoContainer = styled.div`
@@ -12,10 +13,19 @@ const LogoContainer = styled.div`
   }
 `;
 
-export default function Logo() {
+export default function Logo(props) {
+  const { success } = props 
   return (
     <LogoContainer>
-      <span>Re</span>Title
+      <span>Re</span>Title {success && 'Activated'}
     </LogoContainer>
   );
+}
+
+Logo.propTypes = {
+  success: PropTypes.bool
+};
+
+Logo.defaultProps = {
+  success: false,
 }
