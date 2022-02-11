@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Alert, AlertTitle, Button } from '@mui/material';
+import { Alert, AlertTitle } from '@mui/material';
+import { Logo, Button } from 'components';
 import { LeftAlignDiv, ButtonContainer } from 'components/styleComponents';
 
 const Error = ({ error }) => {
   return (
     <LeftAlignDiv>
+      <Logo />
       <Alert severity="error">
         <AlertTitle>
           <h3>Error</h3>
@@ -15,9 +17,7 @@ const Error = ({ error }) => {
       </Alert>
       <p>Error: {error}</p>
       <ButtonContainer>
-        <Button variant="contained" href="/">
-          Start over
-        </Button>
+        <Button href="/">Start over</Button>
       </ButtonContainer>
     </LeftAlignDiv>
   );

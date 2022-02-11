@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { axiosCodeClient } from 'bootstrap/axios';
-import { Button } from '@mui/material';
+import { Button, Logo } from 'components';
 import { CenteredDiv, ButtonContainer } from 'components/styleComponents';
 import { useUser } from 'hooks/user';
 
@@ -37,6 +37,7 @@ export default function Dashboard() {
 
   return (
     <CenteredDiv>
+      <Logo />
       <h3>
         Welcome {name}, you are now set up to get fun new titles to replace any
         generic titles
@@ -46,9 +47,7 @@ export default function Dashboard() {
         integration.
       </p>
       <ButtonContainer>
-        <Button variant="contained" onClick={disableAccount}>
-          Disable my Re-Title account
-        </Button>
+        <Button onClick={disableAccount}>Disable my Re-Title account</Button>
       </ButtonContainer>
     </CenteredDiv>
   );

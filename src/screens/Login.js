@@ -1,21 +1,22 @@
 import React from 'react';
-import Button from '@mui/material/Button';
+import { Box, Typography } from '@mui/material';
 import { CONSTANTS } from 'bootstrap/constants';
 import { CenteredDiv } from 'components/styleComponents';
+import { Logo, Button } from 'components';
 
 export default function Login() {
   return (
     <CenteredDiv>
-      <h2>Tired of boring/generic activity titles on Strava?</h2>
-      <h2>
-        Use ReTitle to get a fun new title for your activity automatically!
-      </h2>
-      <Button
-        variant="contained"
-        href={CONSTANTS.STRAVA_AUTH_LINK}
-        color="warning">
-        Auth with Strava
-      </Button>
+      <Logo />
+      <Box style={{ margin: '1.5rem 3rem 3rem' }}>
+        <Typography variant="h5" style={{ marginBottom: '2rem' }}>
+          Tired of boring activity titles on Strava?
+        </Typography>
+        <Typography variant="h5">
+          Automatically get a fun new title for your activity!
+        </Typography>
+      </Box>
+      <Button href={CONSTANTS.STRAVA_AUTH_LINK}>Sign In With Strava</Button>
     </CenteredDiv>
   );
 }
