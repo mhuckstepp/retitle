@@ -4,7 +4,7 @@ import { Alert, AlertTitle } from '@mui/material';
 import { Logo, Button } from 'components';
 import { LeftAlignDiv, ButtonContainer } from 'components/styleComponents';
 
-const Error = ({ error }) => {
+const Error = () => {
   return (
     <LeftAlignDiv>
       <Logo />
@@ -15,7 +15,6 @@ const Error = ({ error }) => {
         We had an issue syncing with your strava, please try again and make sure
         to check all the boxes on the Strava page{' '}
       </Alert>
-      <p>Error: {error}</p>
       <ButtonContainer>
         <Button href="/">Start over</Button>
       </ButtonContainer>
