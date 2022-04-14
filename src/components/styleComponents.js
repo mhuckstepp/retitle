@@ -7,7 +7,9 @@ export const CenteredDiv = styled.div`
   align-items: center;
   height: 80%;
   @media (max-width: 768px) {
-    margin-top: 3rem;
+    padding-top: 3rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
     justify-content: flex-start;
   }
 `;
@@ -34,4 +36,8 @@ export const ButtonContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 100px;
+`;
+
+export const ExternalLink = styled.a`
+  color: black;
 `;

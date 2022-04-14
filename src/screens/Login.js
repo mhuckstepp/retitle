@@ -1,10 +1,17 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import { useUser } from 'hooks/user';
 import { CONSTANTS } from 'bootstrap/constants';
 import { CenteredDiv } from 'components/styleComponents';
 import { Logo, Button } from 'components';
 
 export default function Login() {
+  const navigate = useNavigate();
+  const [user] = useUser();
+  if (user?.firstName) {
+    navigate('/dashboard');
+  }
   return (
     <CenteredDiv>
       <Logo />

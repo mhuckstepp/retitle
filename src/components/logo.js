@@ -1,6 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
+import { useUser } from 'hooks/user';
 
 const LogoContainer = styled.div`
   font-family: 'Poppins', sans-serif;
@@ -11,21 +12,19 @@ const LogoContainer = styled.div`
     color: #fc5200;
     padding-right: 3px;
   }
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
-export default function Logo(props) {
-  const { success } = props 
+export default function Logo() {
+  const [user] = useUser();
+  const navigate = useNavigate();
+  const navigateHome = () => navigate(user?.firstName ? '/dashboard' : '/');
+
   return (
-    <LogoContainer>
-      <span>Re</span>Title {success && 'Activated'}
+    <LogoContainer onClick={navigateHome}>
+      <span>Re</span>Title
     </LogoContainer>
   );
-}
-
-Logo.propTypes = {
-  success: PropTypes.bool
-};
-
-Logo.defaultProps = {
-  success: false,
 }
